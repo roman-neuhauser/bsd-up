@@ -5,6 +5,7 @@ setup::
 test that no output from mdconfig aborts::
 
   $ bsd-up -u
+  o cd /usr/src
   o git checkout master
   [1]
 
@@ -23,6 +24,7 @@ test that no output from mdconfig aborts::
   > EOF
 
   $ echo y | bsd-up -u
+  o cd /usr/src
   o git checkout master
   o git fetch up
   o git merge --ff-only up

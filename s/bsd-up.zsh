@@ -108,7 +108,7 @@ done; shift $((OPTIND - 1))
 
 (( $#requested )) || help 1
 
-cd $srcdir
+o cd $srcdir
 
 for step in ${steps/*:}; do
   (( $+requested[$step] )) || continue
