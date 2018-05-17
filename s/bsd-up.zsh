@@ -52,7 +52,7 @@ function update # {{{
   o git merge --ff-only up
   ; git rev-parse HEAD | read new
   o git diff $old..$new -- UPDATING
-  ; read -q "?continue? "
+  ; read -q -u 0 "?continue? "
 } # }}}
 
 function cleanup # {{{
