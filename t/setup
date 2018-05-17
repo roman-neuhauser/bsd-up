@@ -1,0 +1,6 @@
+export FAKE_BINDIR="$TMPDIR"
+export PATH="$FAKE_BINDIR:$BUILDDIR:$PATH"
+
+fake -c git
+fake -c make
+fake -c sudo
