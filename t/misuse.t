@@ -10,7 +10,7 @@ test that -h brings up usage::
     -d     delete-old
     -i     install{kernel,world} + mergemaster KERNCONF
     -h     display this list
-    -m     mdconfig + newfs + mount
+    -m     mount in-memory fs on $objdir
     -u     git fetch etc
 
 
@@ -21,7 +21,7 @@ test that no options brings up usage, fails::
     -d     delete-old
     -i     install{kernel,world} + mergemaster KERNCONF
     -h     display this list
-    -m     mdconfig + newfs + mount
+    -m     mount in-memory fs on $objdir
     -u     git fetch etc
   [1]
 
@@ -34,6 +34,6 @@ test that unknown option brings up usage, fails::
     -d     delete-old
     -i     install{kernel,world} + mergemaster KERNCONF
     -h     display this list
-    -m     mdconfig + newfs + mount
+    -m     mount in-memory fs on $objdir
     -u     git fetch etc
   [1]

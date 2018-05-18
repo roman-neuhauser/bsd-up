@@ -32,7 +32,7 @@ function help # {{{
     -d "delete-old" \
     -i "install{kernel,world} + mergemaster KERNCONF" \
     -h "display this list" \
-    -m "mdconfig + newfs + mount" \
+    -m "mount in-memory fs on \$objdir" \
     -u "git fetch etc"
   exit $1
 } # }}}
@@ -58,17 +58,12 @@ function update # {{{
 function cleanup # {{{
 {
   o sudo umount $objdir
-  o sudo mdconfig -d -u $1
 } # }}}
 
 function mkstorage # {{{
 {
-  ; local md
-  o sudo mdconfig -at swap -s 16g | read md
-  ; eval "function zshexit { cleanup $md; }"
-  o sudo newfs -U /dev/$md
-  o sudo mount /dev/$md $objdir
-  o sudo chown $USERNAME $objdir
+  o sudo mount -t tmpfs -o uid=$(id -u),size=16g tmpfs "$objdir"
+  ; function zshexit { cleanup; }
 } # }}}
 
 function build # {{{
