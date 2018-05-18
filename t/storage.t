@@ -5,7 +5,8 @@ setup::
 
 test that no output from mdconfig aborts::
 
-  $ fbsd-up -m
+  $ bsd-up -m
+  o cd /usr/src
   o sudo mdconfig -at swap -s 16g
   [1]
 
@@ -18,7 +19,8 @@ test that failing mdconfig aborts::
   > exit 42
   > EOF
 
-  $ fbsd-up -m
+  $ bsd-up -m
+  o cd /usr/src
   o sudo mdconfig -at swap -s 16g
   [42]
 
@@ -29,7 +31,8 @@ test success::
   > md69
   > EOF
 
-  $ fbsd-up -m
+  $ bsd-up -m
+  o cd /usr/src
   o sudo mdconfig -at swap -s 16g
   o sudo newfs -U /dev/md69
   o sudo mount /dev/md69 /usr/obj
